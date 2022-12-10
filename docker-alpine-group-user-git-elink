@@ -1,0 +1,14 @@
+FROM alpine
+RUN apk update
+RUN apk add git elinks 
+
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+ENV v1=happy 
+CMD "welcome v1"
+
+# docker build -t india .
+# docker run -d --name chimpu1 india
+# docker ps -a
+# docker tag india harshithagutta17/india
+# docker images
+# docker push harshithagutta17/india
