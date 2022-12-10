@@ -1,0 +1,9 @@
+[webservers]
+10.0.1.47
+
+[dbservers]
+10.0.1.48
+
+[allservers]
+10.0.1.47
+10.0.1.48
