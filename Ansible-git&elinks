@@ -1,0 +1,14 @@
+- name: installing git and elinks
+  hosts: webservers
+  tasks:
+    - name: install git
+      apt:
+        name: git
+        state: present
+        update_cache: yes
+
+    - name: install elinks
+      apt:
+        name: elinks
+        state: present
+        update_cache: yes
