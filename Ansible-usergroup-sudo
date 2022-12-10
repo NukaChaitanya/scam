@@ -1,0 +1,26 @@
+- name: create 2 users adding into group
+  hosts: webservers
+  tasks:
+   - name: Ensure group "somegroup" exists
+     group:
+      name: devops
+      state: present
+   - name: Add the user 'johnd' with a specific uid and a primary group of 'admin'
+     user:
+      name: hyper
+      group: devops
+   - name: Give sudo access to devops user
+     blockinfile:
+      path: /etc/sudoers
+      insertafter: 'root    ALL=(ALL)       ALL'
+      block: |
+          # Gives sudo access to the devops group
+          %devops        ALL=(ALL)       NOPASSWD: ALL
+          super         ALL=(ALL)      NOPASSWD: ALL
+          
+          
+          
+# cat /etc/groups |grep decops
+# cat /etc/shadow 
+# cat /etc/nopasswd
+# cd /etc/sudoers.d/  >> visudo
